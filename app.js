@@ -1,40 +1,71 @@
-const gridSize = document.querySelector("#grid-size");
-const divs = document.querySelector(".square-divs");
-const rangeText = document.querySelector("#range-text");
-let gridScale = gridSize.value;
+const gridSizeRange = document.querySelector("#grid-size");
+const gridContainer = document.querySelector(".square-divs");
+const dimensionRangeText = document.querySelector("#range-text");
+const increaseGrid = document.querySelector(".plus");
+const decreaseGrid = document.querySelector(".minus");
+const gridButtons = [increaseGrid, decreaseGrid];
+let gridScale = gridSizeRange.value;
 let isDrawing = false;
-rangeText.textContent = `${gridScale} x ${gridScale}`;
+let hue = 0;
+let intervalId;
+
+// initiate grid generation:
 makeGrid();
 
-gridSize.addEventListener("change", (e) => {
-  console.log(gridSize.value);
-  gridScale = gridSize.value;
-  rangeText.textContent = `${gridScale} x ${gridScale}`;
+// divs.addEventListener("mouseleave", () => (isDrawing = false)); // Stop drawing if mouse leaves the grid borders
+
+// Draw only inside the grid container:
+gridContainer.addEventListener("mousedown", () => (isDrawing = true));
+document.addEventListener("mouseup", () => (isDrawing = false));
+
+// Grid dimension range listener:
+// gridSizeRange.addEventListener("change", changeGridDimen);
+gridSizeRange.addEventListener("mousemove", () => {
   changeGridDimen();
 });
 
+// Increase and Decrease buttons listeners:
+gridButtons.forEach((button) => {
+  button.addEventListener("click", () => {
+    changeGridDimen(button === increaseGrid);
+  });
+  button.addEventListener("mousedown", () => {
+    intervalId = setInterval(() => {
+      changeGridDimen(button === increaseGrid);
+    }, 100);
+  });
+  button.addEventListener("mouseup", () => {
+    clearInterval(intervalId);
+  });
+});
+
 function makeGrid() {
-  divs.style.gridTemplateColumns = `repeat(${gridScale}, 1fr)`;
-  divs.style.gridTemplateRows = `repeat(${gridScale}, 1fr)`;
+  dimensionRangeText.textContent = `${gridScale} x ${gridScale}`;
+  gridContainer.style.gridTemplateColumns = `repeat(${gridScale}, 1fr)`;
+  gridContainer.style.gridTemplateRows = `repeat(${gridScale}, 1fr)`;
   for (let i = 0; i < gridScale * gridScale; i++) {
     const squareDiv = document.createElement("div");
     squareDiv.classList.add("square");
-    divs.appendChild(squareDiv);
-  }
-  const square = document.querySelectorAll(".square");
-  square.forEach((el) => {
-    el.addEventListener("mousedown", () => {
-      isDrawing = true;
-    });
-    el.addEventListener("mouseup", () => (isDrawing = false));
-    el.addEventListener("mousemove", () => {
+
+    squareDiv.addEventListener("mousemove", () => {
       if (!isDrawing) return;
-      el.style.background = "black";
+      squareDiv.style.background = `hsl(${hue}, 100%, 50%)`;
+      hue++;
     });
-  });
+    gridContainer.appendChild(squareDiv);
+  }
 }
 
-function changeGridDimen() {
-  divs.innerHTML = "";
+function changeGridDimen(increase) {
+  if (typeof increase != "boolean") {
+    gridScale = gridSizeRange.value;
+  } else if (increase) {
+    gridSizeRange.value++;
+    gridScale = gridSizeRange.value;
+  } else {
+    gridSizeRange.value--;
+    gridScale = gridSizeRange.value;
+  }
+  gridContainer.innerHTML = "";
   makeGrid();
 }

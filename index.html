@@ -9,20 +9,27 @@
     <script src="./app.js" defer></script>
   </head>
   <body>
-    <header>
+    <header class="header">
       <h1>Etch-a-Sketch</h1>
     </header>
     <div class="square-divs">
       <!-- put the 16x16 divs here -->
     </div>
-    <label id="range-text" for="grid-size"></label>
-    <input
-      type="range"
-      name="grid-size"
-      id="grid-size"
-      value="16"
-      max="50"
-      min="1"
-    />
+    <div class="range-container">
+      <div class="minus">-</div>
+      <div class="range">
+        <label id="range-text" for="grid-size"></label>
+        <input
+          type="range"
+          name="grid-size"
+          id="grid-size"
+          value="16"
+          max="50"
+          min="1"
+        />
+      </div>
+      <div class="plus">+</div>
+    </div>
+    
   </body>
 </html>
