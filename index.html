@@ -12,30 +12,34 @@
     <header class="header">
       <h1>Etch-a-Sketch</h1>
     </header>
-    <div class="menu">
-      <input type="color" id="color-picker" />
-      <button class="button">Buttons</button>
-      <button class="button">Buttons</button>
-      <button class="button">Buttons</button>
-      <button class="button">Buttons</button>
-    </div>
-    <div class="square-divs">
-      <!-- put the 16x16 divs here -->
-    </div>
-    <div class="range-container">
-      <div class="minus">-</div>
-      <div class="range">
-        <label id="range-text" for="grid-size"></label>
-        <input
-          type="range"
-          name="grid-size"
-          id="grid-size"
-          value="16"
-          max="50"
-          min="1"
-        />
+    <div class="main">
+      <div class="menu">
+        <input type="color" id="color-picker" />
+        <button class="button">Buttons</button>
+        <button class="button">Buttons</button>
+        <button class="button">Buttons</button>
+        <button class="button">Buttons</button>
       </div>
-      <div class="plus">+</div>
+      <div class="canvas">
+        <div class="square-divs">
+          <!-- put the 16x16 divs here -->
+        </div>
+        <div class="range-container">
+          <div class="minus">-</div>
+          <div class="range">
+            <label id="range-text" for="grid-size"></label>
+            <input
+              type="range"
+              name="grid-size"
+              id="grid-size"
+              value="16"
+              max="50"
+              min="1"
+            />
+          </div>
+          <div class="plus">+</div>
+        </div>
+      </div>
     </div>
   </body>
 </html>

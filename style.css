@@ -23,6 +23,20 @@ body {
   padding: 0;
 }
 
+.main {
+  display: flex;
+  max-width: 1100px;
+  justify-content: center;
+  align-items: center;
+  gap: 10rem;
+  margin: 0 auto;
+}
+
+.canvas {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
 .square {
   border: 1px solid black;
   user-select: none;
@@ -32,14 +46,11 @@ body {
   display: grid;
   width: 500px;
   height: 500px;
-  margin: 0 auto 2rem;
   background-color: #efefef;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
 .menu {
-  position: absolute;
-  left: 50px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -47,6 +58,7 @@ body {
   height: 500px;
   justify-content: flex-end;
   gap: 30px;
+  justify-content: center;
   /* overflow: hidden; */
 }
 
@@ -114,4 +126,39 @@ input[type="color"]::-webkit-color-swatch {
 
 #grid-size {
   flex: 0 1 0;
+}
+
+@media (max-width: 850px) {
+  .main {
+    gap: 50px;
+  }
+
+  .menu {
+    width: 150px;
+    gap: 16px;
+  }
+
+  .square-divs {
+    width: 400px;
+    height: 400px;
+  }
+}
+
+@media (max-width: 650px) {
+  .header {
+    font-size: 1.2em;
+  }
+
+  .main {
+    flex-direction: column-reverse;
+  }
+
+  .menu {
+    justify-content: flex-start;
+  }
+
+  .square-divs {
+    width: 300px;
+    height: 300px;
+  }
 }
