@@ -15,10 +15,10 @@
     <div class="main">
       <div class="menu">
         <input type="color" id="color-picker" />
-        <button class="button">Buttons</button>
-        <button class="button">Buttons</button>
-        <button class="button">Buttons</button>
-        <button class="button">Buttons</button>
+        <button class="button" id="color-pick">Pick a color</button>
+        <button class="button" id="rainbow">Rainbow</button>
+        <button class="button" id="eraser">Eraser</button>
+        <button class="button" id="clear-all">Clear all</button>
       </div>
       <div class="canvas">
         <div class="square-divs">
@@ -41,5 +41,14 @@
         </div>
       </div>
     </div>
+    <footer>
+      <h1 class="footer-text">
+        Copyright ©
+        <script>
+          document.write(new Date().getFullYear());
+        </script>
+        <a href="https://github.com/WerdnaLes" target="_blank">Werdnales</a>
+      </h1>
+    </footer>
   </body>
 </html>

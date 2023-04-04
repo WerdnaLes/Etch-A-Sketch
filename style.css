@@ -1,3 +1,9 @@
+@import url("https://fonts.googleapis.com/css2?family=Alkatra&family=Ubuntu:wght@300&display=swap");
+
+:root {
+  --btn-grey: #1d1f20;
+}
+
 *,
 ::after,
 ::before {
@@ -8,11 +14,19 @@ html,
 body {
   margin: 0;
   padding: 0;
+  font-family: "Ubuntu", sans-serif;
+}
+
+body {
+  height: 100dvh;
+  display: flex;
+  flex-direction: column;
 }
 
 .header {
   width: 100%;
-  background-color: darkgrey;
+  background-color: var(--btn-grey);
+  color: #efefef;
   text-align: center;
   margin-bottom: 5rem;
   font-size: 2em;
@@ -68,11 +82,19 @@ body {
   transition: ease 0.2s;
   cursor: pointer;
   width: 100%;
+  text-align: center;
+  font-size: 1em;
+  font-weight: bold;
 }
 
 .button:hover,
 #color-picker:hover {
   transform: scale(1.05);
+}
+
+button.active {
+  background-color: var(--btn-grey);
+  color: white;
 }
 
 #color-picker {
@@ -128,6 +150,27 @@ input[type="color"]::-webkit-color-swatch {
   flex: 0 1 0;
 }
 
+footer {
+  margin-top: auto;
+  width: 100%;
+}
+
+footer h1.footer-text {
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  font-size: 1.2em;
+}
+
+footer h1.footer-text a {
+  text-decoration: none;
+  color: inherit;
+}
+
+footer h1.footer-text a:hover {
+  color: rgb(132, 95, 255);
+}
+
 @media (max-width: 850px) {
   .main {
     gap: 50px;
@@ -157,8 +200,16 @@ input[type="color"]::-webkit-color-swatch {
     justify-content: flex-start;
   }
 
+  .button {
+    font-size: 0.8em;
+  }
+
   .square-divs {
     width: 300px;
     height: 300px;
+  }
+
+  footer h1.footer-text {
+    font-size: 0.9em;
   }
 }
