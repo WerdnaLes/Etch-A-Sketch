@@ -60,6 +60,7 @@ function makeGrid() {
 }
 
 function changeGridDimen(increase) {
+  const prevGrid = gridScale;
   if (typeof increase != "boolean") {
     gridScale = gridSizeRange.value;
   } else if (increase) {
@@ -69,6 +70,9 @@ function changeGridDimen(increase) {
     gridSizeRange.value--;
     gridScale = gridSizeRange.value;
   }
-  gridContainer.innerHTML = "";
-  makeGrid();
+  // Change grid container only if gridScale has been changed:
+  if (prevGrid != gridScale) {
+    gridContainer.innerHTML = "";
+    makeGrid();
+  }
 }
