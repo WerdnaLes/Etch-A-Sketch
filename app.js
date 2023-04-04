@@ -16,7 +16,10 @@ makeGrid();
 
 // Draw only inside the grid container:
 gridContainer.addEventListener("mousedown", () => (isDrawing = true));
-document.addEventListener("mouseup", () => (isDrawing = false));
+document.addEventListener("mouseup", () => {
+  isDrawing = false;
+  clearInterval(intervalId);
+});
 
 // Grid dimension range listener:
 // gridSizeRange.addEventListener("change", changeGridDimen);
