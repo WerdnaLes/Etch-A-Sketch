@@ -85,6 +85,7 @@ body {
   text-align: center;
   font-size: 1em;
   font-weight: bold;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
 .button:hover,
@@ -144,10 +145,13 @@ input[type="color"]::-webkit-color-swatch {
   flex: 0 0 auto;
   border: 1px solid black;
   user-select: none;
+  cursor: pointer;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
 #grid-size {
   flex: 0 1 0;
+  cursor: pointer;
 }
 
 footer {
