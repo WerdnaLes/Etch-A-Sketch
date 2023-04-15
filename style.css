@@ -21,6 +21,9 @@ body {
   height: 100dvh;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  gap: 5rem;
 }
 
 .header {
@@ -28,7 +31,6 @@ body {
   background-color: var(--btn-grey);
   color: #efefef;
   text-align: center;
-  margin-bottom: 5rem;
   font-size: 2em;
 }
 
@@ -43,7 +45,6 @@ body {
   justify-content: center;
   align-items: center;
   gap: 10rem;
-  margin: 0 auto;
 }
 
 .canvas {
@@ -73,7 +74,6 @@ body {
   justify-content: flex-end;
   gap: 30px;
   justify-content: center;
-  /* overflow: hidden; */
 }
 
 .button {
@@ -100,6 +100,7 @@ button.active {
 
 #color-picker {
   -webkit-appearance: none;
+  appearance: none;
   height: 80px;
   width: 80px;
   border-radius: 50%;
@@ -155,7 +156,6 @@ input[type="color"]::-webkit-color-swatch {
 }
 
 footer {
-  margin-top: auto;
   width: 100%;
 }
 
